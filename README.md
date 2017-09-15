@@ -8,8 +8,7 @@ The whole BrainCube language is based upon two core ideas:
  * Pointers can move through memory in three dimensions.
      - What does that even mean?
        + In traditional languages like C and C++, a pointer can only move through memory horizontally, as if it were a line.  
-       + In languages like [Befunge](https://github.com/catseye/Befunge-93) and [Orthoganal](https://github.com/m-ender/orthagonal), the pointer can move through memory horizontally and vertically, as if it were a grid.
-       + In BrainCube, a pointer is able to move through memory horizonally, vertically, and normally<sup>[1](#normally-definition)</sup>, as if it were a **cube**, hence the "Cube"  part of Brain**Cube**.  
+       + However, in BrainCube, a pointer is able to move through memory horizonally, vertically, and normally<sup>[1](#normally-definition)</sup>, as if it were a **cube**, hence the "Cube"  part of Brain**Cube**.  
 <sub><sup><a name="normally-definition">1</a>: In this context, normally means "along the axis normal to the plane formed by the horizontal and vertical axes."</sub></sup>
 #### Why aren't there any code examples?
 Quick answer: I am still in the process of writing the language specification.
