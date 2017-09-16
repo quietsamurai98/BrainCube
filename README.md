@@ -1,5 +1,5 @@
 # BrainCube
-BrainCube is an esoteric programming language based on manipulating pointers to a shared cube of memory.
+BrainCube is an esoteric programming language based on manipulating pointers to a shared, 3D memory space.
 
 ## Check out how to use BrainCube on [the wiki](https://github.com/quietsamurai98/BrainCube/wiki), or look at some [examples](https://github.com/quietsamurai98/BrainCube/tree/master/examples)!
 
