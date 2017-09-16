@@ -1,0 +1,40 @@
+/** PROGRAM DESCRIPTION
+Goal: Print "Hello, World!"
+This code demonstrates how to use while loops, pointer repeat loops, number repeat loops, and utilize overflows.
+It is not even close being an efficient way of printing "Hello, World!", but it is an educational one.
+**/
+
+/** Initialization **/
+ch
+ch(XXXXXXX) /*Move to [7][0][0]. The first 256 cells of the tape at [7][0] will hold ASCII values.*/
+
+/** Set cells [7][0][0]..[7][0][255] to 0..255 **/
+ch(>+)          /*Set [7][0][1] to 1*/
+(ch)[
+    (ch)(
+        ch(>+<) /*Increase the cell to the left of the current cell by one.*/
+    )           /*The result of this repeat loop is setting the cell to the left of ch to the value of ch*/
+    ch(>+)      /*Move ch to the left, and increment that cell's value, setting the value of [7][0][n] to n*/
+]               /*This loop exits after the value of ch overflows back to zero.*/
+(ch)[ch(<)]     /*Go back to [7][0][0]*/
+
+/** Print "Hello, World!" **/
+/* This is the long, generic way of doing it.*/
+/*
+    Each line moves ch to [7][0][the number in the parentheses],
+        prints the value as a character,
+        and moves back to [7][0][0]
+*/
+(072)[ch(>)].(ch)[ch(<)] /* H */
+(101)[ch(>)].(ch)[ch(<)] /* e */
+(108)[ch(>)].(ch)[ch(<)] /* l */
+(108)[ch(>)].(ch)[ch(<)] /* l */
+(111)[ch(>)].(ch)[ch(<)] /* o */
+(044)[ch(>)].(ch)[ch(<)] /* , */
+(032)[ch(>)].(ch)[ch(<)] /*   */
+(087)[ch(>)].(ch)[ch(<)] /* W */
+(111)[ch(>)].(ch)[ch(<)] /* o */
+(114)[ch(>)].(ch)[ch(<)] /* r */
+(108)[ch(>)].(ch)[ch(<)] /* l */
+(100)[ch(>)].(ch)[ch(<)] /* d */
+(033)[ch(>)].(ch)[ch(<)] /* ! */
