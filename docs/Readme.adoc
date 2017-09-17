@@ -15,7 +15,7 @@ Notable features/quirks of BrainCube include:
 == How does it work?
 First, a note on my use of the word "implementer": When I say implementer in this documentation, I am referring to any implementation of this language, whether it be an interpreter, compiler, or turning machine.
 
-Second, a note on Turing-Completeness: Because this language is a derivative of brainf**k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any concivable BF program to BrainCube. In fact, brainf**k is most likely "less" Turing-complete than BrainCube, as the BF standard only requires support for 30000 cells, while this BrainCube specification requires dynamically resizable lists to store cells. Due to the limited tape of most brain
+Second, a note on Turing-Completeness: Because this language is a derivative of brainf&#42;&#42;k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any concivable BF program to BrainCube. In fact, brainf&#42;&#42;k is most likely "less" Turing-complete than BrainCube, as the BF standard only requires support for 30000 cells, while this BrainCube specification requires dynamically resizable lists to store cells. Due to the limited tape of most brain
 f**k implementations, most implementations are technically not truely able to simulate any turing machine because they'd run out of tape.
 However, because proof by parent language is too easy for an esolang like this, I will attempt to write a few BrainCube programs to simulate other systems that are known to be Turing-complete, such as Rule 110.
 
