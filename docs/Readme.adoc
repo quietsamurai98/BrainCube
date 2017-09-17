@@ -53,7 +53,7 @@ Example: `myptr`, followed by a space, newline, or tab would declare a new point
 ==== Pointer Commands
 A pointer is told what to do by naming it and immediately following said name with a set of parentheses, containing a string of pointer commands, which are defined in the table below.
 
-Example: `myptr(XX++++>++)` moves `myptr` to [2][0][0], sets that cell's value to 4, moves `myptr` to [2][0][1], then sets that value to 2.
+Example: `myptr(XX{plus}{plus}{plus}{plus}>{plus}{plus})` moves `myptr` to [2][0][0], sets that cell's value to 4, moves `myptr` to [2][0][1], then sets that value to 2.
 
 [cols="a,d"] 
 |===
@@ -64,6 +64,9 @@ Example: `myptr(XX++++>++)` moves `myptr` to [2][0][0], sets that cell's value t
 |`v`|Move the pointer down the sheet to the previous tape.
 |`X`|Move the pointer forward through the Memory Cube to the next sheet.
 |`O`|Move the pointer backward through the Memory Cube to the previous sheet.
+2+| DATA MODIFICATION COMMANDS
+|`{plus}`|Increase the pointer's target cell by one, wrapping to zero if need be.
+|`-`|Decrease the pointer's target cell by one, wrapping to the cell's max value if need be.
 2+| OUTPUT COMMANDS
 |`.`|Output the value of the target cell as an ASCII character, without a newline.
 |`'`|Output the value of the target cell in binary, followed by a newline.
@@ -96,8 +99,8 @@ Control flow structures have two components, called the head and body.
 ==== Repeat Loops
    * Format: `(head)(body)` _or_ `(number)(body)`  
    * Examples: 
-   ** `(ptr_a)(ptr_b(+))` will increment the value of ptr_b's target cell _n_ times, where _n_ is the value of ptr_a's target cell before first entering the repeat loop.  
-   ** `(10)(myptr(+))` will increment the value of myptr's target cell 10 times.
+   ** `(ptr_a)(ptr_b({plus}))` will increment the value of ptr_b's target cell _n_ times, where _n_ is the value of ptr_a's target cell before first entering the repeat loop.  
+   ** `(10)(myptr({plus}))` will increment the value of myptr's target cell 10 times.
 
 === Comments
 All comments are block comments, and must start with `/\*` and end with `*/`. These comments may contain any text except for the substrings `/\*` or `*/`.
