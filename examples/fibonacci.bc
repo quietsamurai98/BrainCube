@@ -1,5 +1,5 @@
 /** PROGRAM DESCRIPTION **/
-/*	Calculate the fibonacci sequence, storing each fibonacci number Fn at cell [n][0][0], with F0 being one and F1 being 1. */
+/*  Calculate the fibonacci sequence, storing each fibonacci number Fn at cell [n][0][0], with F0 being one and F1 being 1. */
 
 
 true true(>+)	/* true  is a pointer to [0][0][1], which has a value of 1, so it will always evaluate to true  in a control flow head */
