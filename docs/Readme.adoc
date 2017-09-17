@@ -9,7 +9,7 @@ Notable features/quirks of BrainCube include:
 
  * A memory system based in three dimensional space
  * Cells that have a capacity determined by their position in memory
- * User-defined pointers, which are used for executing all but two commands 
+ * User-defined pointers, which are used for executing all but three commands 
  * Three or four different control structures, depending on how you count them
 
 == How does it work?
@@ -35,10 +35,12 @@ The only time a BrainCube program would directly control memory would be when it
  * A cell on sheet N can store N+1 bits.
  
 === *System Commands*
-There are two system commands that are used to communicate with the interpreter directly, rather than to manipulate pointers. Because they are not used with pointers, they must appear outside pointer command lists. The two system commands are:  
+There are three  system commands that are used to communicate with the interpreter directly, rather than to manipulate pointers. Because they are not used with pointers, they must appear outside pointer command lists. The 
+system commands are:  
 
  * `!`: Stop program execution before reaching the end of the instructions 
  * `?`: Perform a garbage collection
+ * `#`: Start debugging (what this means exactly is implementation-specific)
  
 Example: `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+)` would cause even the most efficient implementer to allocate at _least_ 264 bits of RAM for data storage, when it only needs to allocate 8 bits of ram. Changing the code to `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+) ?` would tell the implementer to free up those unneeded bits. 260 bits may sound negligable, but when the size of each cell increases with each sheet, RAM can get eaten up pretty quickly.
   
