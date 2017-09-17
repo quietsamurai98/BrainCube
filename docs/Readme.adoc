@@ -42,7 +42,7 @@ system commands are:
  * `?`: Perform a garbage collection
  * `#`: Start debugging (what this means exactly is implementation-specific)
  
-Example: `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+)` would cause even the most efficient implementer to allocate at _least_ 264 bits of RAM for data storage, when it only needs to allocate 8 bits of ram. Changing the code to `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+) ?` would tell the implementer to free up those unneeded bits. 260 bits may sound negligable, but when the size of each cell increases with each sheet, RAM can get eaten up pretty quickly.
+Example: `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+)` would cause even the most efficient implementer to allocate at _least_ 264 bits of RAM for data storage, when it only needs to allocate 8 bits of ram. Changing the code to `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+) ?` would tell the implementer to free up those unneeded bits. Freeing an extra 256 bits of RAM may seem like a waste of time, but when the size of each cell increases with each sheet, RAM can get eaten up pretty quickly.
   
 === *Pointers*
 BrainCube, much like its predecessor https://github.com/quietsamurai98/MindMeld[MindMeld], can support multiple pointers. 
