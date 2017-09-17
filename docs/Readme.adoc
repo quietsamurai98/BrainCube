@@ -48,7 +48,7 @@ Pointers are declared by naming them without providing a list of commands for th
 
 Pointer names may only contain letters, numbers, and underscores, and must contain at least one letter.
 
-Example `myptr`, followed by a space, newline, or tab would declare a new pointer named `myptr`, initialized so it is pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
+Example: `myptr`, followed by a space, newline, or tab would declare a new pointer named `myptr`, initialized so it is pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
 
 ==== Pointer Commands
 A pointer is told what to do by naming it and immediately following said name with a set of parentheses, containing a string of pointer commands, which are defined in the table below.
