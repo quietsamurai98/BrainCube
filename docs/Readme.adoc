@@ -13,6 +13,11 @@ Notable features/quirks of BrainCube include:
  * Three or four different control structures, depending on how you count them
 
 == How does it work?
+First, a note on my use of the word "implementer": When I say implementer in this documentation, I am referring to any implementation of this language, whether it be an interpreter, compiler, or turning machine.
+
+Second, a note on Turing-Completeness: Because this language is a derivative of brainf**k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any concivable BF program to BrainCube. In fact, brainf**k is most likely "less" Turing-complete than BrainCube, as the BF standard only requires support for 30000 cells, while this BrainCube specification requires dynamically resizable lists to store cells. Due to the limited tape of most brain
+f**k implementations, most implementations are technically not truely able to simulate any turing machine because they'd run out of tape.
+However, because proof by parent language is too easy for an esolang like this, I will attempt to write a few BrainCube programs to simulate other systems that are known to be Turing-complete, such as Rule 110.
 
 === *Memory System*
 Programming languages almost always treat memory like a one dimensional array, because that's more or less what it actually is at the level of assembly language. 
@@ -32,10 +37,12 @@ The only time a BrainCube program would directly control memory would be when it
  * A cell on sheet N can store N+1 bits.
  
 === *System Commands*
-There are two system commands that are used to communicate with the interpreter directly, rather than to manipulate pointers. The two system commands are:  
+There are two system commands that are used to communicate with the interpreter directly, rather than to manipulate pointers. Because they are not used with pointers, they must appear outside pointer command lists. The two system commands are:  
 
- * `!`: Stop program execution  
+ * `!`: Stop program execution before reaching the end of the instructions 
  * `?`: Perform a garbage collection
+ 
+ Example: `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+)` would cause even the most efficient implementer to allocate at _least_ 264 bits of RAM for data storage, when it only needs to allocate 8 bits of ram. Changing the code to `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+) ?` would tell the implementer to free up those unneeded bits. 260 bits may sound negligable, but when the size of each cell increases with each sheet, RAM can get eaten up pretty quickly.
   
 === *Pointers*
 BrainCube, much like its predecessor https://github.com/quietsamurai98/MindMeld[MindMeld], can support multiple pointers. 
