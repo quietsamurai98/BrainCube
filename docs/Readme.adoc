@@ -15,7 +15,7 @@ Notable features/quirks of BrainCube include:
 == How does it work?
 First, a note on my use of the word "implementer": When I say implementer in this documentation, I am referring to any implementation of this language, whether it be an interpreter, compiler, or turning machine.
 
-Second, a note on Turing-Completeness: Because this language is a derivative of brainf&#42;&#42;k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any concivable BF program to BrainCube.
+Second, a note on Turing-Completeness: Because this language is a derivative of brainf&#42;&#42;k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any conceivable BF program to BrainCube.
 
 === *Memory System*
 Programming languages almost always treat memory like a one dimensional array, because that's more or less what it actually is at the level of assembly language. 
@@ -24,7 +24,7 @@ In BrainCube, the standard one-dimensional memory space used by most languages i
 
 Each cell can hold a number of bits equal to the index of its parent sheet in the Memory Cube plus one. For example, a cell on sheet 0 would contain 0+1=_1_ bit, a cell on sheet 1 would contain 1+1=_2_ bits, a cell on sheet 2 would contain 1+2=_3_ bits, and so on.
 
-The only time a BrainCube program would directly control memory would be when it calls the `?` system command to trigger garbage collection. Otherwise, the implementer will automatically _allocate_ memory for new cells as needed. _The implementer will never deallocate/perform a garbage collection without receiving the `?` system command_. After reciving the `?` command, the implementer must deallocate any cell which meets both the following conditions:
+The only time a BrainCube program would directly control memory would be when it calls the `?` system command to trigger garbage collection. Otherwise, the implementer will automatically _allocate_ memory for new cells as needed. _The implementer will never deallocate/perform a garbage collection without receiving the `?` system command_. After receiving the `?` command, the implementer must deallocate any cell which meets both the following conditions:
 
  1. The cell must have a non-zero value.
  2. The cell must not have a role in keeping track of the positions of other non-zero cells.
@@ -111,3 +111,5 @@ Control flow structures have two components, called the head and body.
 
 === Comments
 All comments are block comments, and must start with `/\*` and end with `*/`. These comments may contain any text except for the substrings `/\*` or `*/`.
+
+
