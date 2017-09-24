@@ -6,17 +6,17 @@ It is not even close being an efficient way of printing "Hello, World!", but it 
 
 /** Initialization **/
 ~ch~
-ch(XXXXXXX) /*Move to [7][0][0]. The first 256 cells of the tape at [7][0] will hold ASCII values.*/
+ch(XXXXXXX>+) /*Move to [7][0][1], set to 1. The first 256 cells of the tape at [7][0] will hold ASCII values.*/
 
 /** Set cells [7][0][0]..[7][0][255] to 0..255 **/
-ch(>+)          /*Set [7][0][1] to 1*/
 (ch)[
-    (ch)(
-        ch(>+<) /*Increase the cell to the left of the current cell by one.*/
-    )           /*The result of this repeat loop is setting the cell to the left of ch to the value of ch*/
-    ch(>+)      /*Move ch to the left, and increment that cell's value, setting the value of [7][0][n] to n*/
-]               /*This loop exits after the value of ch overflows back to zero.*/
-(ch)[ch(<)]     /*Go back to [7][0][0]*/
+	(ch)(
+		ch(>+<)
+	)
+	ch(>+)
+]
+/**Move back to [7][0][0]**/
+ch(<)(ch)[ch(<)]
 
 /** Print "Hello, World!" **/
 /* This is the long, generic way of doing it.*/
@@ -25,16 +25,18 @@ ch(>+)          /*Set [7][0][1] to 1*/
         prints the value as a character,
         and moves back to [7][0][0]
 */
-(072)(ch(>))ch(.)(ch)[ch(<)] /* H */
-(101)(ch(>))ch(.)(ch)[ch(<)] /* e */
-(108)(ch(>))ch(.)(ch)[ch(<)] /* l */
-(108)(ch(>))ch(.)(ch)[ch(<)] /* l */
-(111)(ch(>))ch(.)(ch)[ch(<)] /* o */
-(044)(ch(>))ch(.)(ch)[ch(<)] /* , */
-(032)(ch(>))ch(.)(ch)[ch(<)] /*   */
-(087)(ch(>))ch(.)(ch)[ch(<)] /* W */
-(111)(ch(>))ch(.)(ch)[ch(<)] /* o */
-(114)(ch(>))ch(.)(ch)[ch(<)] /* r */
-(108)(ch(>))ch(.)(ch)[ch(<)] /* l */
-(100)(ch(>))ch(.)(ch)[ch(<)] /* d */
-(033)(ch(>))ch(.)(ch)[ch(<)] /* ! */
+(072)(ch(>))ch(.)(ch)[ch(<)] /*  H */
+(101)(ch(>))ch(.)(ch)[ch(<)] /*  e */
+(108)(ch(>))ch(.)(ch)[ch(<)] /*  l */
+(108)(ch(>))ch(.)(ch)[ch(<)] /*  l */
+(111)(ch(>))ch(.)(ch)[ch(<)] /*  o */
+(044)(ch(>))ch(.)(ch)[ch(<)] /*  , */
+(032)(ch(>))ch(.)(ch)[ch(<)] /*    */
+(087)(ch(>))ch(.)(ch)[ch(<)] /*  W */
+(111)(ch(>))ch(.)(ch)[ch(<)] /*  o */
+(114)(ch(>))ch(.)(ch)[ch(<)] /*  r */
+(108)(ch(>))ch(.)(ch)[ch(<)] /*  l */
+(100)(ch(>))ch(.)(ch)[ch(<)] /*  d */
+(033)(ch(>))ch(.)(ch)[ch(<)] /*  ! */
+(000)(ch(>))ch(.)(ch)[ch(<)] /* \0 */
+(010)(ch(>))ch(.)(ch)[ch(<)] /* \n */
