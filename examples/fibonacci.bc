@@ -6,7 +6,7 @@
 
 ~a~ a(+)	/* First fibonacci number is 1, at [0][0][0] */
 ~b~ b(X+)	/* Second fibonacci number is also 1, at [1][0][0] */
-~c~ c(XX)	/* Third fibonacci number will be on sheet 2
+~c~ c(XX)	/* Third fibonacci number will be on sheet 2 */
 
 (true)[ /* Infinite loop of calculating fibonacci numbers */
 	(a)(c(+))	/* Add a to c */
