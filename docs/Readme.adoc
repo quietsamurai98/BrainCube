@@ -55,7 +55,7 @@ Pointers are declared by putting tildes (`~`) around the name of the pointer.
 
 Pointer names may only contain letters, numbers, and underscores, and must contain at least one letter.
 
-Example: `\~myptr\~` will declare a new pointer named `myptr`, initially pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
+Example: `\~myptr~` will declare a new pointer named `myptr`, initially pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
 
 ==== Pointer Commands
 A pointer is given commands by naming the pointer, followed by a set of parentheses containing a sequence of pointer commands.
