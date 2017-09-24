@@ -12,7 +12,7 @@ Notable features/quirks of BrainCube include:
  * User-defined pointers, which are used for executing all but three commands 
  * Three or four different control structures, depending on how you count them
 
-== How does it work?
+== BrainCube Standard Specification
 First, a note on my use of the word "implementer": When I say implementer in this documentation, I am referring to any implementation of this language, whether it be an interpreter, compiler, or turning machine.
 
 Second, a note on Turing-Completeness: Because this language is a derivative of brainf&#42;&#42;k, it is trivial to prove BrainCube is Turing-complete, as it only takes a bit of regex-find-and-replace to translate any conceivable BF program to BrainCube.
@@ -40,7 +40,7 @@ system commands are:
 
  * `!`: Stop program execution before reaching the end of the instructions 
  * `?`: Perform a garbage collection
- * `#`: Start debugging (what this means exactly is implementation-specific)
+ * `#`: Debug breakpoint (behavior is implementation-specific)
  
 Example: `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+)` would cause even the most efficient implementer to allocate at _least_ 264 bits of RAM for data storage, when it only needs to allocate 8 bits of ram. Changing the code to `myptr(XXXXXXX-) (myptr)(myptr(X)) myptr(-+) ?` would tell the implementer to free up those unneeded bits. Freeing an extra 256 bits of RAM may seem like a waste of time, but when the size of each cell increases with each sheet, RAM can get eaten up pretty quickly.
   
@@ -51,14 +51,14 @@ Unlike MindMeld, however, users of BrainCube may name and use their own pointers
 Pointers are the heart and soul of BrainCube. Without any pointers, all a program could do is exit, or collect garbage it hasn't produced yet.
  
 ==== Pointer Declaration 
-Pointers are declared by naming them without providing a list of commands for them to execute.
+Pointers are declared by putting tildes (`~`) around the name of the pointer.
 
 Pointer names may only contain letters, numbers, and underscores, and must contain at least one letter.
 
-Example: `myptr`, followed by a space, newline, or tab would declare a new pointer named `myptr`, initialized so it is pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
+Example: `\~myptr\~` will declare a new pointer named `myptr`, initially pointing at sheet 0, tape 0, cell 0, or [0][0][0] for short.
 
 ==== Pointer Commands
-A pointer is told what to do by naming it and immediately following said name with a set of parentheses, containing a string of pointer commands, which are defined in the table below.
+A pointer is given commands by naming the pointer, followed by a set of parentheses containing a sequence of pointer commands.
 
 Example: `myptr(XX{plus}{plus}{plus}{plus}>{plus}{plus})` moves `myptr` to [2][0][0], sets that cell's value to 4, moves `myptr` to [2][0][1], then sets that value to 2.
 
@@ -110,6 +110,6 @@ Control flow structures have two components, called the head and body.
    ** `(10)(myptr({plus}))` will increment the value of myptr's target cell 10 times.
 
 === Comments
-All comments are block comments, and must start with `/\*` and end with `*/`. These comments may contain any text except for the substrings `/\*` or `*/`.
+All comments must start with `/\*` and end with `*/`. Comments do not nest.
 
 
